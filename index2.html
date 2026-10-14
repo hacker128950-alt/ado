@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #222;
+            background-color: #f4f6f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #e2e6ea;
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            text-align: center;
+            font-size: 28px;
+            color: #1f2937;
+        }
+
+        h2 {
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-size: 21px;
+            color: #374151;
+        }
+
+        p {
+            margin: 0 0 18px;
+            min-height: 1.7em;
+            text-align: justify;
+        }
+
+
+        .program {
+            margin: 28px 0;
+            padding-top: 8px;
+            border-top: 1px solid #e2e6ea;
+        }
+
+        h3 {
+            margin: 18px 0 8px;
+            font-size: 16px;
+            color: #1f2937;
+        }
+
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 6px 9px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background: #eef2f7;
+        }
+
+        pre {
+            margin: 0 0 20px;
+            padding: 16px;
+            overflow-x: auto;
+            background: #f7f8fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 6px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 13px;
+            line-height: 1.55;
+            text-align: left;
+            white-space: pre;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+<h1>Meow</h1>
+<p></p>
+<section class="program"><h2>EX 1 – Form Design Using Web Controls</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head runat="server"&gt;
+  &lt;title&gt;Form Design Using Web Controls&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+  &lt;h2&gt;Student Registration Form&lt;/h2&gt;
+  &lt;asp:Label ID="lblName" runat="server" Text="Name:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:TextBox ID="txtName" runat="server"&gt;&lt;/asp:TextBox&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblAge" runat="server" Text="Age:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:TextBox ID="txtAge" runat="server"&gt;&lt;/asp:TextBox&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblGender" runat="server" Text="Gender:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:RadioButton ID="rbMale" runat="server"
+    Text="Male" GroupName="Gender" /&gt;
+  &lt;asp:RadioButton ID="rbFemale" runat="server"
+    Text="Female" GroupName="Gender" /&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblCourse" runat="server" Text="Course:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:DropDownList ID="ddlCourse" runat="server"&gt;
+    &lt;asp:ListItem&gt;B.Sc Computer Science&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;M.Sc Computer Science&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;BCA&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;MCA&lt;/asp:ListItem&gt;
+  &lt;/asp:DropDownList&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblSkills" runat="server" Text="Skills:"&gt;&lt;/asp:Label&gt;
+  &lt;br /&gt;
+  &lt;asp:CheckBox ID="chkJava" runat="server" Text="Java" /&gt;
+  &lt;asp:CheckBox ID="chkPython" runat="server" Text="Python" /&gt;
+  &lt;asp:CheckBox ID="chkCSharp" runat="server" Text="C#" /&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblCity" runat="server" Text="City:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:ListBox ID="lstCity" runat="server"&gt;
+    &lt;asp:ListItem&gt;Trichy&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;Chennai&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;Coimbatore&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem&gt;Madurai&lt;/asp:ListItem&gt;
+  &lt;/asp:ListBox&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblDOB" runat="server" Text="Date of Birth:"&gt;&lt;/asp:Label&gt;
+  &lt;asp:Calendar ID="calDOB" runat="server"&gt;&lt;/asp:Calendar&gt;
+  &lt;br /&gt;
+  &lt;asp:Button ID="btnSubmit" runat="server"
+    Text="Submit" OnClick="btnSubmit_Click" /&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Label ID="lblResult" runat="server"&gt;&lt;/asp:Label&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+namespace WebControlsDemo
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string name = txtName.Text;
+            string age = txtAge.Text;
+            string gender = "";
+            if (rbMale.Checked)
+              gender = "Male";
+            else if (rbFemale.Checked)
+              gender = "Female";
+            string course = ddlCourse.SelectedItem.Text;
+            string city = lstCity.SelectedItem.Text;
+            string skills = "";
+            if (chkJava.Checked)
+              skills += "Java ";
+            if (chkPython.Checked)
+              skills += "Python ";
+            if (chkCSharp.Checked)
+              skills += "C# ";
+            lblResult.Text =
+              "Name: " + name + "&lt;br/&gt;" +
+              "Age: " + age + "&lt;br/&gt;" +
+              "Gender: " + gender + "&lt;br/&gt;" +
+              "Course: " + course + "&lt;br/&gt;" +
+              "Skills: " + skills + "&lt;br/&gt;" +
+              "City: " + city;
+        }
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 2.1 – Ad Rotator Control</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head runat="server"&gt;
+  &lt;title&gt;Ad Rotator Control&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+  &lt;h2&gt;Advertisement&lt;/h2&gt;
+  &lt;asp:AdRotator ID="AdRotator1"
+    runat="server"
+    AdvertisementFile="~/Ads.xml"
+    Width="400px"
+    Height="200px" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h3>Ads.xml</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;Advertisements&gt;
+ &lt;Ad&gt;
+  &lt;ImageUrl&gt;Images/ad1.jpg&lt;/ImageUrl&gt;
+ &lt;/Ad&gt;
+ &lt;Ad&gt;
+  &lt;ImageUrl&gt;Images/ad2.jpg&lt;/ImageUrl&gt;
+ &lt;/Ad&gt;
+&lt;/Advertisements&gt;</code></pre></div>
+</section>
+<section class="program"><h2>EX 2.2 – Calendar Control</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;html&gt;
+&lt;head runat="server"&gt;
+    &lt;title&gt;Calendar Control&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+    &lt;h2&gt;Calendar Control&lt;/h2&gt;
+    &lt;asp:Calendar ID="Calendar1"
+        runat="server"
+        OnSelectionChanged="Calendar1_SelectionChanged"&gt;
+    &lt;/asp:Calendar&gt;
+    &lt;br /&gt;
+    &lt;asp:Label ID="lblDate"
+        runat="server"
+        Text="Select a date"&gt;
+    &lt;/asp:Label&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+
+namespace CalendarDemo
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            lblDate.Text = "Selected Date: "
+              + Calendar1.SelectedDate.ToShortDateString();
+        }
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 2.3 – Login Control</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;html&gt;
+&lt;head runat="server"&gt;
+    &lt;title&gt;Login Control&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+    &lt;h2&gt;Student Login&lt;/h2&gt;
+    &lt;asp:Login ID="Login1"
+        runat="server"
+        TitleText="Student Login"
+        LoginButtonText="Login"
+        UserNameLabelText="Username:"
+        PasswordLabelText="Password:"
+        OnAuthenticate="Login1_Authenticate"&gt;
+    &lt;/asp:Login&gt;
+    &lt;br /&gt;
+    &lt;asp:Label ID="lblMessage"
+        runat="server"&gt;
+    &lt;/asp:Label&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+using System.Web.Security;
+namespace LoginDemo
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void Login1_Authenticate(
+            object sender,
+            AuthenticateEventArgs e)
+        {
+            if (Login1.UserName == "admin" &amp;&amp;
+                Login1.Password == "1234")
+            {
+                e.Authenticated = true;
+                lblMessage.Text = "Login Successful!";
+            }
+            else
+            {
+                e.Authenticated = false;
+                lblMessage.Text = "Invalid Username or Password";
+            }
+        }
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 3 – Validation Controls Example</h2>
+<h3>Webform1.apsx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head runat="server"&gt;
+  &lt;title&gt;Validation Controls Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+  &lt;h2&gt;Student Registration Form&lt;/h2&gt;
+  Name:
+  &lt;asp:TextBox ID="txtName" runat="server"&gt;&lt;/asp:TextBox&gt;
+  &lt;asp:RequiredFieldValidator
+    ID="rfvName"
+    runat="server"
+    ControlToValidate="txtName"
+    ErrorMessage="Name is required"
+    ForeColor="Red"&gt;
+  &lt;/asp:RequiredFieldValidator&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  Age:
+  &lt;asp:TextBox ID="txtAge" runat="server"&gt;&lt;/asp:TextBox&gt;
+  &lt;asp:RangeValidator
+    ID="rvAge"
+    runat="server"
+    ControlToValidate="txtAge"
+    MinimumValue="18"
+    MaximumValue="60"
+    Type="Integer"
+    ErrorMessage="Age must be between 18 and 60"
+    ForeColor="Red"&gt;
+  &lt;/asp:RangeValidator&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  Email:
+  &lt;asp:TextBox ID="txtEmail" runat="server"&gt;&lt;/asp:TextBox&gt;
+  &lt;asp:RegularExpressionValidator
+    ID="revEmail"
+    runat="server"
+    ControlToValidate="txtEmail"
+    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+    ErrorMessage="Enter a valid email address"
+    ForeColor="Red"&gt;
+  &lt;/asp:RegularExpressionValidator&gt;
+  Password:
+  &lt;asp:TextBox ID="txtPassword" runat="server"
+    TextMode="Password"&gt;&lt;/asp:TextBox&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  Confirm Password:
+  &lt;asp:TextBox ID="txtConfirmPassword" runat="server"
+    TextMode="Password"&gt;&lt;/asp:TextBox&gt;
+  &lt;asp:CompareValidator
+    ID="cvPassword"
+    runat="server"
+    ControlToValidate="txtConfirmPassword"
+    ControlToCompare="txtPassword"
+    Operator="Equal"
+    ErrorMessage="Passwords do not match"
+    ForeColor="Red"&gt;
+  &lt;/asp:CompareValidator&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  Course:
+  &lt;asp:DropDownList ID="ddlCourse" runat="server"&gt;
+    &lt;asp:ListItem Text="-- Select Course --" Value=""&gt;&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem Text="BCA" Value="BCA"&gt;&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem Text="B.Sc Computer Science" Value="BSc"&gt;&lt;/asp:ListItem&gt;
+    &lt;asp:ListItem Text="B.Tech" Value="BTech"&gt;&lt;/asp:ListItem&gt;
+  &lt;/asp:DropDownList&gt;
+  &lt;asp:RequiredFieldValidator
+    ID="rfvCourse"
+    runat="server"
+    ControlToValidate="ddlCourse"
+    InitialValue=""
+    ErrorMessage="Please select a course"
+    ForeColor="Red"&gt;
+  &lt;/asp:RequiredFieldValidator&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:Button ID="btnSubmit" runat="server"
+    Text="Submit" OnClick="btnSubmit_Click" /&gt;
+  &lt;br /&gt;&lt;br /&gt;
+  &lt;asp:ValidationSummary
+    ID="ValidationSummary1"
+    runat="server"
+    ForeColor="Red"
+    HeaderText="Please correct the following errors:" /&gt;
+  &lt;asp:Label ID="lblMessage" runat="server"
+    ForeColor="Green"&gt;&lt;/asp:Label&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+</section>
+<section class="program"><h2>EX 4 – Cookies</h2>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+using System.Web;
+public partial class Cookies : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+    protected void InsertCookie()
+    {
+        HttpCookie cookie = new HttpCookie("Student");
+        cookie["Name"] = "Leo";
+        cookie["Course"] = "BCA";
+        cookie.Expires = DateTime.Now.AddDays(7);
+
+        Response.Cookies.Add(cookie);
+    }
+    protected void ReadCookie()
+    {
+        HttpCookie cookie = Request.Cookies["Student"];
+
+        if (cookie != null)
+        {
+            string name = cookie["Name"];
+            string course = cookie["Course"];
+            Response.Write("Name: " + name + "&lt;br&gt;");
+            Response.Write("Course: " + course);
+        }
+    }
+    protected void UpdateCookie()
+    {
+        HttpCookie cookie = Request.Cookies["Student"];
+        if (cookie != null)
+        {
+            cookie["Name"] = "Joel";
+            cookie["Course"] = "B.Sc Computer Science";
+            cookie.Expires = DateTime.Now.AddDays(7);
+
+            Response.Cookies.Set(cookie);
+        }
+    }
+    protected void DeleteCookie()
+    {
+        HttpCookie cookie = Request.Cookies["Student"];
+        if (cookie != null)
+        {
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
+        }
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 5 – ASP.NET State Management</h2>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+
+public partial class StateManagement : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+    protected void btnSet_Click(object sender, EventArgs e)
+    {
+        Session["Name"] = "Leo";
+        Session["Course"] = "BCA";
+
+        Response.Write("Session values stored successfully.");
+    }
+    protected void btnGet_Click(object sender, EventArgs e)
+    {
+        if (Session["Name"] != null)
+        {
+            Response.Write("Name: " + Session["Name"] + "&lt;br&gt;");
+            Response.Write("Course: " + Session["Course"]);
+        }
+        else
+        {
+            Response.Write("Session is empty.");
+        }
+    }
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        Session["Name"] = "Joel";
+        Session["Course"] = "B.Sc Computer Science";
+
+        Response.Write("Session values updated successfully.");
+    }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Session.Remove("Name");
+        Session.Remove("Course");
+        Response.Write("Session values removed successfully.");
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 6 – Database Operations</h2>
+<h3>Webform1.aspx.cs</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>using System;
+using System.Data;
+using System.Data.SqlClient;
+public partial class Database : System.Web.UI.Page
+{
+    string connectionString =
+        @"Data Source=.;Initial Catalog=CollegeDB;Integrated Security=True";
+    protected void InsertData()
+    {
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string query = "INSERT INTO Student(Name, Course, Mark) " +
+                    "VALUES(@Name, @Course, @Mark)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Name", "Leo");
+            cmd.Parameters.AddWithValue("@Course", "BCA");
+            cmd.Parameters.AddWithValue("@Mark", 85);
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            Response.Write("Record Inserted Successfully");
+        }
+    }
+    protected void UpdateData()
+    {
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string query = "UPDATE Student SET Name=@Name, " +
+                    "Course=@Course, Mark=@Mark WHERE Id=@Id";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id", 1);
+            cmd.Parameters.AddWithValue("@Name", "Joel");
+            cmd.Parameters.AddWithValue("@Course", "BCA");
+            cmd.Parameters.AddWithValue("@Mark", 90);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            Response.Write("Record Updated Successfully");
+        }
+    }
+    protected void DeleteData()
+    {
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string query = "DELETE FROM Student WHERE Id=@Id";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id", 1);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            Response.Write("Record Deleted Successfully");
+        }
+    }
+    protected void ReadData()
+    {
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string query = "SELECT * FROM Student";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                Response.Write(
+                     "ID: " + row["Id"] +
+                     " Name: " + row["Name"] +
+                     " Course: " + row["Course"] +
+                     " Mark: " + row["Mark"] +
+                     "&lt;br&gt;"
+                );
+            }
+        }
+    }
+}</code></pre></div>
+</section>
+<section class="program"><h2>EX 7 – DataList Example</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;html&gt;
+&lt;head runat="server"&gt;
+  &lt;title&gt;DataList Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+  &lt;h2&gt;Student DataList&lt;/h2&gt;
+  &lt;asp:DataList ID="DataList1" runat="server"
+    RepeatColumns="2"
+    RepeatDirection="Horizontal"&gt;
+    &lt;ItemTemplate&gt;
+         &lt;div style="border:1px solid black; padding:10px; margin:5px;"&gt;
+           &lt;b&gt;ID:&lt;/b&gt;
+           &lt;%# Eval("Id") %&gt;
+           &lt;br /&gt;
+           &lt;b&gt;Name:&lt;/b&gt;
+           &lt;%# Eval("Name") %&gt;
+           &lt;br /&gt;
+           &lt;b&gt;Course:&lt;/b&gt;
+           &lt;%# Eval("Course") %&gt;
+           &lt;br /&gt;
+           &lt;b&gt;Mark:&lt;/b&gt;
+           &lt;%# Eval("Mark") %&gt;
+         &lt;/div&gt;
+    &lt;/ItemTemplate&gt;
+  &lt;/asp:DataList&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+</section>
+<section class="program"><h2>EX 8 – ASP.NET Chart Example</h2>
+<h3>Webform1.aspx</h3>
+<div class="code-container"><button class="copy-button" type="button" aria-label="Copy code" onclick="copyCode(this)">Copy</button><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head runat="server"&gt;
+  &lt;title&gt;ASP.NET Chart Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" runat="server"&gt;
+  &lt;h2&gt;Student Mark Chart&lt;/h2&gt;
+  &lt;asp:Chart ID="Chart1" runat="server"
+    Width="600px"
+    Height="400px"&gt;
+    &lt;Titles&gt;
+      &lt;asp:Title Text="Student Marks"&gt;&lt;/asp:Title&gt;
+    &lt;/Titles&gt;
+    &lt;Series&gt;
+      &lt;asp:Series Name="Marks"
+          ChartType="Column"&gt;
+      &lt;/asp:Series&gt;
+    &lt;/Series&gt;
+    &lt;ChartAreas&gt;
+      &lt;asp:ChartArea Name="ChartArea1"&gt;
+      &lt;/asp:ChartArea&gt;
+    &lt;/ChartAreas&gt;
+  &lt;/asp:Chart&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+</section>
+    </main>
+
+    <script>
+        function copyCode(button) {
+            const code = button.parentElement.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 1500);
+            }).catch(() => {
+                const range = document.createRange();
+                range.selectNodeContents(button.parentElement.querySelector('code'));
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                try {
+                    document.execCommand('copy');
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 1500);
+                } catch (error) {
+                    button.textContent = 'Copy failed';
+                }
+                selection.removeAllRanges();
+            });
+        }
+    </script>
+
+</body>
+</html>
